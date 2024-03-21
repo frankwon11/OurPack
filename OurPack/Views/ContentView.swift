@@ -17,12 +17,12 @@ struct ContentView: View {
         TabView {
             PackLibraryView()
                 .tabItem {
-                    Label("지난 여행", systemImage: "square.grid.2x2")
+                    Label("지난 여행짐", systemImage: "square.grid.2x2")
                 }
                 .tag(Tab.yourPack)
             CurrentPackView()
                 .tabItem {
-                    Label("이번 여행", systemImage: "person.3")
+                    Label("이번 여행짐", systemImage: "person.3")
                 }
                 .tag(Tab.ourPack)
             MyPackView()
