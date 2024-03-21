@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct UserData: Hashable {
+struct UserData: Hashable, Identifiable {
+    var id: UUID = UUID()
     var name: String
     var color: Color
 }
