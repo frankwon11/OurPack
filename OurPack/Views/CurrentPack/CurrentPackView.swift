@@ -10,11 +10,23 @@ import SwiftUI
 struct CurrentPackView: View {
     @ObservedObject var navigationManager: NavigationManager = NavigationManager()
     
+    let luggageItems = [
+       LuggageItem(name: "헤어 드라이기"),
+       LuggageItem(name: "샴푸"),
+       LuggageItem(name: "치약"),
+       LuggageItem(name: "옷"),
+       LuggageItem(name: "고데기"),
+       LuggageItem(name: "헤어 드라이기"),
+       LuggageItem(name: "샴푸"),
+       LuggageItem(name: "치약"),
+       LuggageItem(name: "옷"),
+       LuggageItem(name: "고데기")
+   ]
     var body: some View {
         NavigationStack (path: $navigationManager.currentPackViewPath){
             List {
-                // 여행 멤버
-                Section {
+                // 여행 멤버 섹션
+                Section (header: Text("여행 멤버").font(.subheadline).bold().foregroundStyle(.gray)) {
                     HStack {
                         // 본인
                         memberProfile(user: USER)
@@ -27,12 +39,23 @@ struct CurrentPackView: View {
                     } // HStack
                 } // Section
                 .padding([.top, .bottom], 5)
+                
+                // 공유되는 짐 섹션
+                Section (header: Text("공유 중인 짐").font(.subheadline).bold().foregroundStyle(.gray)) {
+                    // 짐 목록을 나타내는 그리드 뷰
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        ForEach(luggageItems) { item in
+                            LuggageCardView(luggageItem: item)
+                        }
+                    }
+                }
             } // List
             .navigationTitle("니짐내짐")
         }
     }
 }
 
+// 이번 여행 멤버 뷰
 @ViewBuilder
 func memberProfile(user: UserData) -> some View {
     VStack {
