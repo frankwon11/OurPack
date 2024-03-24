@@ -83,6 +83,15 @@ struct MyPackView: View {
                 }
             }
             .navigationTitle("짐 챙기기")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ChooseLuggageView(myLuggages: $myLuggages)) {
+                        Image(systemName: "suitcase")
+                            .bold()
+                            .foregroundStyle(.teal)
+                    }
+                }
+            }
         } // NavigationStack
     }
     
