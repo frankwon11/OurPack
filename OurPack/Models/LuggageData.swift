@@ -13,7 +13,7 @@ struct LuggageData: Identifiable {
     var luggageItem: LuggageItem
     var packedUsers: [UserData] = [] // 해당 짐을 챙기는 사람들
     var shareableUsers: [UserData] = [] // 해당 짐을 챙긴 사람들 중에 공유할 의사가 있는 사람들
-    var chosenUsers: [UserData] = [] // 공유되는 짐 중에서 가져올 사람들
+    var chosenUser: UserData = UserData(name: "default", color: .gray)// 공유되는 짐 중에서 가져올 사람들
     
     // 한 사람에게 챙길 짐을 알려줌
     mutating func getLuggage(user: UserData) -> LuggageItem {

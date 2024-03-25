@@ -8,5 +8,7 @@
 import SwiftUI
 
 class NavigationManager: ObservableObject {
+    @Published var packLibraryViewPath = NavigationPath()
     @Published var currentPackViewPath = NavigationPath()
+    @Published var myPackViewPath = NavigationPath()
 }
