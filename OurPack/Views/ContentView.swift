@@ -12,12 +12,13 @@ enum Tab {
     case ourPack
     case yourPack
 }
+
 struct ContentView: View {
     var body: some View {
         TabView {
             PackLibraryView()
                 .tabItem {
-                    Label("지난 여행짐", systemImage: "square.grid.2x2")
+                    Label("짐 보관소", systemImage: "square.grid.2x2")
                 }
                 .tag(Tab.yourPack)
             CurrentPackView()
@@ -33,6 +34,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 #Preview {
     ContentView()
